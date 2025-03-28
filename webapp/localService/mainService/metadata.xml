@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Reference Uri="https://FIORIDES.TRANSELEC.CL:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"
+xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+</edmx:Reference>
+<edmx:DataServices m:DataServiceVersion="2.0">
+    <Schema Namespace="ZCC_CAF_CDS" xml:lang="es" sap:schema-version="1"
+    xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+    <Annotation Term="Core.SchemaVersion" String="1.0.0"
+    xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+    <EntityType Name="ZCC_CAFResult" sap:label="CAF" sap:semantics="aggregate" sap:content-version="1">
+        <Key>
+            <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/>
+        <Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true" sap:updatable="false" sap:sortable="false"/>
+        <Property Name="assettransactiontype" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:label="Cl.mov.activos fijos" sap:creatable="false" sap:updatable="false"/>
+        <Property Name="companycodecurrency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="Moneda" sap:creatable="false" sap:updatable="false" sap:value-list="standard" sap:semantics="currency-code"/>
+        <Property Name="assetclass" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:label="Clase de activo fijo" sap:creatable="false" sap:updatable="false"/>
+        <Property Name="COSTO_01" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="COSTO_01_F" sap:unit="companycodecurrency" sap:updatable="false" sap:label="Costo - 01"/>
+        <Property Name="COSTO_01_F" Type="Edm.String" MaxLength="60" sap:label="Costo - 01 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="Tota" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="Tota_F" sap:unit="companycodecurrency" sap:updatable="false" sap:label="Costo - 01"/>
+        <Property Name="Tota_F" Type="Edm.String" MaxLength="60" sap:label="Costo - 01 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="DEP_01" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="DEP_01_F" sap:unit="companycodecurrency" sap:updatable="false" sap:label="Dep. Acum. 01"/>
+        <Property Name="DEP_01_F" Type="Edm.String" MaxLength="60" sap:label="Dep. Acum. 01 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="VALOR_01" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="VALOR_01_F" sap:unit="VALOR_01_E" sap:updatable="false" sap:label="Valor 01"/>
+        <Property Name="VALOR_01_F" Type="Edm.String" MaxLength="60" sap:label="Valor 01 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="VALOR_01_E" Type="Edm.String" MaxLength="5" sap:filterable="false" sap:label="Valor 01 (Moneda)" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+        <Property Name="COSTO_20_23" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="COSTO_20_23_F" sap:unit="COSTO_20_23_E" sap:updatable="false" sap:label="Costo - 20+23"/>
+        <Property Name="COSTO_20_23_F" Type="Edm.String" MaxLength="60" sap:label="Costo - 20+23 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="COSTO_20_23_E" Type="Edm.String" MaxLength="5" sap:filterable="false" sap:label="Costo - 20+23 (Moneda)" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+        <Property Name="DEP_20_23" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="DEP_20_23_F" sap:unit="DEP_20_23_E" sap:updatable="false" sap:label="Dep. Acum. 20+23"/>
+        <Property Name="DEP_20_23_F" Type="Edm.String" MaxLength="60" sap:label="Dep. Acum. 20+23 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="DEP_20_23_E" Type="Edm.String" MaxLength="5" sap:filterable="false" sap:label="Dep. Acum. 20+23 (Moneda)" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+        <Property Name="VALOR_20_23" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="VALOR_20_23_F" sap:unit="VALOR_20_23_E" sap:updatable="false" sap:label="Valor 20+23"/>
+        <Property Name="VALOR_20_23_F" Type="Edm.String" MaxLength="60" sap:label="Valor 20+23 (Formateado)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+        <Property Name="VALOR_20_23_E" Type="Edm.String" MaxLength="5" sap:filterable="false" sap:label="Valor 20+23 (Moneda)" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+        <NavigationProperty Name="Parameters" Relationship="ZCC_CAF_CDS.ZCCAFParametersToResult" FromRole="ToRole_ZCCAFParametersToResult" ToRole="FromRole_ZCCAFParametersToResult"/>
+    </EntityType>
+    <EntityType Name="ZCC_CAFParameters" sap:semantics="parameters" sap:content-version="1">
+        <Key>
+            <PropertyRef Name="P_CompanyCode"/>
+            <PropertyRef Name="P_FiscalYear"/>
+            <PropertyRef Name="P_FiscalPeriod"/>
+        </Key>
+        <Property Name="P_CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:parameter="mandatory" sap:text="P_CompanyCodeText" sap:label="Sociedad" sap:sortable="false" sap:value-list="standard"/>
+        <Property Name="P_CompanyCodeText" Type="Edm.String" MaxLength="60" sap:label="Sociedad (Descripción) " sap:sortable="false"/>
+        <Property Name="P_FiscalYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:parameter="mandatory" sap:text="P_FiscalYearText" sap:label="Ejercicio" sap:sortable="false" sap:filterable="false"/>
+        <Property Name="P_FiscalYearText" Type="Edm.String" MaxLength="60" sap:label="Ejercicio (Descripción) " sap:sortable="false" sap:filterable="false"/>
+        <Property Name="P_FiscalPeriod" Type="Edm.String" Nullable="false" MaxLength="3" sap:parameter="mandatory" sap:text="P_FiscalPeriodText" sap:label="A período" sap:sortable="false" sap:filterable="false"/>
+        <Property Name="P_FiscalPeriodText" Type="Edm.String" MaxLength="60" sap:label="A período (Descripción) " sap:sortable="false" sap:filterable="false"/>
+        <NavigationProperty Name="P_CompanyCodeDetails" Relationship="ZCC_CAF_CDS.P_CompanyCodeToListOfValues" FromRole="ToRole_P_CompanyCodeToListOfValues" ToRole="FromRole_P_CompanyCodeToListOfValues"/>
+        <NavigationProperty Name="Results" Relationship="ZCC_CAF_CDS.ZCCAFParametersToResult" FromRole="FromRole_ZCCAFParametersToResult" ToRole="ToRole_ZCCAFParametersToResult"/>
+        <NavigationProperty Name="companycodecurrencyResults" Relationship="ZCC_CAF_CDS.companycodecurrencyResultsToParameters" FromRole="FromRole_companycodecurrencyResultsToParameters" ToRole="ToRole_companycodecurrencyResultsToParameters"/>
+    </EntityType>
+    <EntityType Name="P_CompanyCode" sap:label="Sociedad" sap:value-list="true" sap:content-version="1">
+        <Key>
+            <PropertyRef Name="P_CompanyCode_ID"/>
+        </Key>
+        <Property Name="P_CompanyCode_ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:sortable="false" sap:text="P_CompanyCode_TEXT" sap:label="Sociedad" sap:creatable="false" sap:updatable="false"/>
+        <Property Name="P_CompanyCode_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Sociedad (Descripción)" sap:creatable="false" sap:updatable="false"/>
+    </EntityType>
+    <EntityType Name="companycodecurrency" sap:label="Moneda (Datos maestros)" sap:value-list="true" sap:content-version="1">
+        <Key>
+            <PropertyRef Name="companycodecurrency_ID"/>
+        </Key>
+        <Property Name="companycodecurrency_ID" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="companycodecurrencyText" sap:label="Moneda" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+        <Property Name="companycodecurrencyText" Type="Edm.String" sap:label="Moneda (Descripción)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+    </EntityType>
+    <EntityType Name="companycodecurrencyResult" sap:label="Moneda (Datos contabilizados)" sap:value-list="true" sap:content-version="1">
+        <Key>
+            <PropertyRef Name="companycodecurrency"/>
+        </Key>
+        <Property Name="companycodecurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Moneda" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+        <Property Name="assettransactiontype" Type="Edm.String" MaxLength="3" sap:label="Cl.mov.activos fijos" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+        <Property Name="assetclass" Type="Edm.String" MaxLength="8" sap:label="Clase de activo fijo" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+        <NavigationProperty Name="Parameters" Relationship="ZCC_CAF_CDS.companycodecurrencyResultsToParameters" FromRole="ToRole_companycodecurrencyResultsToParameters" ToRole="FromRole_companycodecurrencyResultsToParameters"/>
+    </EntityType>
+    <EntityType Name="ODataQueryAdditionalMetadata" sap:content-version="1">
+        <Key>
+            <PropertyRef Name="ODataQueryMetadata"/>
+        </Key>
+        <Property Name="ODataQueryMetadata" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+        <Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+        <Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    </EntityType>
+    <Association Name="ZCCAFParametersToResult" sap:content-version="1">
+        <End Type="ZCC_CAF_CDS.ZCC_CAFParameters" Multiplicity="1" Role="FromRole_ZCCAFParametersToResult"/>
+        <End Type="ZCC_CAF_CDS.ZCC_CAFResult" Multiplicity="*" Role="ToRole_ZCCAFParametersToResult"/>
+    </Association>
+    <Association Name="companycodecurrencyResultsToParameters" sap:content-version="1">
+        <End Type="ZCC_CAF_CDS.ZCC_CAFParameters" Multiplicity="1" Role="FromRole_companycodecurrencyResultsToParameters"/>
+        <End Type="ZCC_CAF_CDS.companycodecurrencyResult" Multiplicity="*" Role="ToRole_companycodecurrencyResultsToParameters"/>
+    </Association>
+    <Association Name="P_CompanyCodeToListOfValues" sap:content-version="1">
+        <End Type="ZCC_CAF_CDS.P_CompanyCode" Multiplicity="1" Role="FromRole_P_CompanyCodeToListOfValues"/>
+        <End Type="ZCC_CAF_CDS.ZCC_CAFParameters" Multiplicity="*" Role="ToRole_P_CompanyCodeToListOfValues"/>
+        <ReferentialConstraint>
+            <Principal Role="FromRole_P_CompanyCodeToListOfValues">
+                <PropertyRef Name="P_CompanyCode_ID"/>
+            </Principal>
+            <Dependent Role="ToRole_P_CompanyCodeToListOfValues">
+                <PropertyRef Name="P_CompanyCode"/>
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <EntityContainer Name="ZCC_CAF_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+        <EntitySet Name="companycodecurrency" EntityType="ZCC_CAF_CDS.companycodecurrency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+        <EntitySet Name="companycodecurrencyResults" EntityType="ZCC_CAF_CDS.companycodecurrencyResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+        <EntitySet Name="AdditionalMetadata" EntityType="ZCC_CAF_CDS.ODataQueryAdditionalMetadata" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+        <EntitySet Name="ZCC_CAFResults" EntityType="ZCC_CAF_CDS.ZCC_CAFResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+        <EntitySet Name="ZCC_CAF" EntityType="ZCC_CAF_CDS.ZCC_CAFParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+        <EntitySet Name="P_CompanyCode" EntityType="ZCC_CAF_CDS.P_CompanyCode" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+        <AssociationSet Name="P_CompanyCodeToListOfValues_AssocSet" Association="ZCC_CAF_CDS.P_CompanyCodeToListOfValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+            <End EntitySet="P_CompanyCode" Role="FromRole_P_CompanyCodeToListOfValues"/>
+            <End EntitySet="ZCC_CAF" Role="ToRole_P_CompanyCodeToListOfValues"/>
+        </AssociationSet>
+        <AssociationSet Name="companycodecurrencyResultsToParameters_A" Association="ZCC_CAF_CDS.companycodecurrencyResultsToParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+            <End EntitySet="ZCC_CAF" Role="FromRole_companycodecurrencyResultsToParameters"/>
+            <End EntitySet="companycodecurrencyResults" Role="ToRole_companycodecurrencyResultsToParameters"/>
+        </AssociationSet>
+        <AssociationSet Name="ZCCAFParametersToResult_AssocSet" Association="ZCC_CAF_CDS.ZCCAFParametersToResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+            <End EntitySet="ZCC_CAF" Role="FromRole_ZCCAFParametersToResult"/>
+            <End EntitySet="ZCC_CAFResults" Role="ToRole_ZCCAFParametersToResult"/>
+        </AssociationSet>
+    </EntityContainer>
+    <Annotations Target="ZCC_CAF_CDS.ZCC_CAFParameters/P_CompanyCode"
+    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Annotation Term="Common.ValueList">
+        <Record>
+            <PropertyValue Property="Label" String="Sociedad"/>
+            <PropertyValue Property="CollectionPath" String="P_CompanyCode"/>
+            <PropertyValue Property="SearchSupported" Bool="false"/>
+            <PropertyValue Property="Parameters">
+                <Collection>
+                    <Record Type="Common.ValueListParameterInOut">
+                        <PropertyValue Property="LocalDataProperty" PropertyPath="P_CompanyCode"/>
+                        <PropertyValue Property="ValueListProperty" String="P_CompanyCode_ID"/>
+                    </Record>
+                    <Record Type="Common.ValueListParameterDisplayOnly">
+                        <PropertyValue Property="ValueListProperty" String="P_CompanyCode_TEXT"/>
+                    </Record>
+                </Collection>
+            </PropertyValue>
+        </Record>
+    </Annotation>
+</Annotations>
+<Annotations Target="ZCC_CAF_CDS.ZCC_CAFResult/companycodecurrency"
+xmlns="http://docs.oasis-open.org/odata/ns/edm">
+<Annotation Term="Common.ValueList">
+    <Record>
+        <PropertyValue Property="Label" String="Moneda ( Datos maestros )"/>
+        <PropertyValue Property="CollectionPath" String="companycodecurrency"/>
+        <PropertyValue Property="SearchSupported" Bool="false"/>
+        <PropertyValue Property="Parameters">
+            <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="companycodecurrency"/>
+                    <PropertyValue Property="ValueListProperty" String="companycodecurrency_ID"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                    <PropertyValue Property="ValueListProperty" String="companycodecurrencyText"/>
+                </Record>
+            </Collection>
+        </PropertyValue>
+    </Record>
+</Annotation>
+</Annotations>
+<atom:link rel="self" href="https://FIORIDES.TRANSELEC.CL:44300/sap/opu/odata/sap/ZCC_CAF_CDS/$metadata"
+xmlns:atom="http://www.w3.org/2005/Atom"/>
+<atom:link rel="latest-version" href="https://FIORIDES.TRANSELEC.CL:44300/sap/opu/odata/sap/ZCC_CAF_CDS/$metadata"
+xmlns:atom="http://www.w3.org/2005/Atom"/>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>
